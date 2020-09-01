@@ -7,36 +7,86 @@
   <title>AutoLoops</title>
 
   <link rel="stylesheet" href="assets/css/index.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
   <script src="https://cdn.jsdelivr.net/npm/@magenta/music@1.12.1/dist/magentamusic.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.15.0/d3.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js" defer></script>
+
+  </script>
   <script src="assets/js/index.js" defer></script>
 
 </head>
 
 <body>
 
-  <h1>AutoLoops</h1>
+  <div class="container">
+    <div class="row pt-3">
+      <div class="col-6 offset-2">
+        <h1 class="display-4">AutoLoops</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 row">
+        <label class="button btn btn-outline-secondary" id="fileBtn">
+          load a midi file
+          <input type="file" id="fileInput" multiple>
+        </label>
+        <!-- TODO Play inicial-->
+        <button id="playBtnInitial" class="button btn-secondary">
+          Play
+        </button>
 
-  <label class="button" id="fileBtn">
-    load a midi file
-    <input type="file" id="fileInput" multiple>
-  </label>
+        <button id="addBtn" class="button btn btn-outline-secondary" style="left: 656px; position: relative;">
+          Add
+        </button>
 
-  <button id="playBtn" class="button">
-    Play
-  </button>
+        <button id="saveActBtn" class="button btn btn-outline-secondary" style="left: 655px; position: relative;">
+          Save current
+        </button>
 
+        <button id="playBtn" class="button btn-secondary offset-7" style="position: relative; right: -7px;">
+          Play
+        </button>
+      </div>
+      <div class="visualizer-container cream col-4">
+        <p>initial</p>
+        <svg id="vizInit" style="height: 48px"></svg>
+      </div>
 
-  <div class="sliders-container green">
-    <p>use these sliders to change some features of the sample</p>
-    <svg id="lines"></svg>
-    <div class="sliders horizontal" id="mvaeSliders"></div>
+      <div class="visualizer-container cream col-4 offset-3">
+        <p>current</p>
+        <svg id="vizActual" style="height: 48px"></svg>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-group mb-3 col-2" style="position: relative; top: 80px">
+        <div class="input-group-prepend">
+          <button id="interpolateBtn" class="btn btn-outline-secondary h-25" type="button">Interpolate</button>
+        </div>
+        <input id="interpolateText" type="text" class="form-control h-25" placeholder="" aria-label="" aria-describedby="basic-addon1" style="border: 1px solid black">
+      </div>
+
+      <div class="sliders-container col-6 offset-3 mt-5" style="width: 400px; height: 150px;">
+        <svg id="lines"></svg>
+        <div class="sliders horizontal" id="sliders" style="margin-top: 25px;"></div>
+      </div>
+
+      <!-- QUITAR -->
+      <button id="updateBtn" class="button btn-secondary offset-9 d-none" style="position: absolute;left: 200px;margin-top: 100px;">
+        Update
+      </button>
+
+    </div>
+
+    <div class="input-group col-4" style="position: relative; bottom: 67px;left: -15px">
+      <input id="filename" type="text" class="form-control" placeholder="File name" style="border: 1px solid black">
+      <div class="input-group-append">
+        <button id="saveAllBtn" class="btn btn-outline-secondary" type="button">Save All</button>
+      </div>
+    </div>
+
   </div>
-
-  <div class="visualizer-container cream">
-                <svg id="vizInput"></svg>
-              </div>
-
 </body>
 </html>
