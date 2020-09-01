@@ -1,3 +1,78 @@
 h1 {
     color: blueviolet
 }
+
+.horizontal {
+  flex-direction: row;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.cream {
+  background: var(--cream);
+  border: 2px solid var(--blue);
+  color: var(--blue);
+}
+
+.green {
+  background: var(--green);
+  border: none;
+  color: var(--blue);
+}
+
+.visualizer-container {
+  overflow: auto;
+  min-height: 100px;
+}
+
+/******************
+ * Sliders
+ ******************/
+.sliders-container {
+  height: 200px;
+  width: 100%;
+  position: relative;
+  margin: 8px 0;
+  xpadding: 0 8px;
+  overflow: hidden;
+  text-align: center;
+}
+
+#midimeSlidersContainer {
+  width: 300px;
+  margin-right: 8px;
+}
+
+.range-wrap {
+  width: var(--slider-size);
+  height: 100px;
+  position: relative;
+}
+
+#lines {
+  position: absolute;
+  left: -1px;
+}
+
+input[type=range] {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: 0;
+  padding: 0;
+  width: 100px;
+  height: var(--thumb-size);
+  transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  border-bottom: none;
+}
+input[type=range]:hover {
+  background: transparent;
+}

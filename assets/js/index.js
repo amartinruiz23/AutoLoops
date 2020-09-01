@@ -40,6 +40,11 @@ async function loadFile() {
   initialMelody = actualMelody = samples[0];
   actualMelody_z = await model.encode(setMelody(actualMelody));
   actualMelody = await model.decode(actualMelody_z);
+
+  vizInput = new mm.PianoRollSVGVisualizer(
+  actualMelody[0],
+  document.getElementById('vizInput'),
+  {noteRGB:'35,70,90', activeNoteRGB:'157, 229, 184', noteHeight:3});
 }
 
 function setMelody(mel) {
