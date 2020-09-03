@@ -7,6 +7,7 @@ init();
 var initialMelody;
 var actualMelody;
 var actualMelody_z;
+var initialMelody_z;
 var nextMelody;
 var savedMelody;
 var interpolateSteps;
@@ -62,10 +63,6 @@ async function play(){
   player.start(actualMelody[0]);
 }
 
-async function interpolate(){
-  interpolateSteps = parseInt(document.getElementById('interpolateText').value)
-  console.log(interpolateSteps)
-}
 
 async function loadFile() {
 
@@ -76,6 +73,7 @@ async function loadFile() {
   samples = await Promise.all(promises);
   actualMelody = samples[0];
   actualMelody_z = await model.encode(setMelody(actualMelody));
+  initialMelody_z = actualMelody_z
   initialMelody = actualMelody = await model.decode(actualMelody_z);
   savedMelody = actualMelody[0];
 
@@ -177,4 +175,31 @@ function updateVisualizer() {
 
 function add(){
   savedMelody = mm.sequences.concatenate([savedMelody, actualMelody[0]]);
+}
+
+async function interpolate(){
+  //console.log("1");
+  interpolateSteps = parseInt(document.getElementById('interpolateText').value)
+  //console.log(interpolateSteps);
+  //console.log("2");
+  let sequences = await model.interpolate([actualMelody[0], initialMelody[0]], interpolateSteps);
+  //console.log("22");
+  for (let i = 0; i < interpolateSteps; i++){
+    //console.log("bucle");
+    //console.log(i);
+    savedMelody = mm.sequences.concatenate([savedMelody, sequences[i]]);
+  }
+  //console.log("3");
+
+  //console.log("4");
+  actualMelody = initialMelody;
+  //console.log("5");
+  actualMelody_z = initialMelody_z;
+  //console.log("16");
+  vizInput = new mm.PianoRollSVGVisualizer(
+  actualMelody[0],
+  document.getElementById('vizActual'),
+  {noteRGB:'35,70,90', activeNoteRGB:'157, 229, 184', noteHeight:3});
+  zArray = actualMelody_z.arraySync()[0]
+  updateSliders(zArray)
 }
