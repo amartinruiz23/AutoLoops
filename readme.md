@@ -4,7 +4,7 @@ AutoLoops is a web application for melody generation using Magenta MusicVAE.
 
 Para abrir la aplicación el usuario solo debe descargar los archivos y abrir _index.html_ con un navegador. Hecho esto se visualizará la interfaz.
 
-![Interfaz de AutoLoops][img/autoloops.png]
+![Interfaz de AutoLoops](img/autoloops.png)
 
 Para comenzar a utilizar la herramienta el usuario deberá cargar una melodía en formato MIDI monofónica de dos compases. Esta acción puede llevarse a cabo mediante el botón _load a midi file_, que permitirá elegir el archivo sobre el que se quiere trabajar. Una vez la melodía ha sido introducida se mostrará en los cuadros _initial_ y _current_.
 
