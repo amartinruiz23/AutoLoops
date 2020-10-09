@@ -20,4 +20,4 @@ También puede exportarse únicamente la melodía actual mediante el botón _sav
 
 Por último se ofrece también la posibilidad de interpolar entre la melodía actual y la melodía inicial. Para ello se hará uso del botón _interpolate_, junto al que se incluye un campo para recoger el número de pasos que se quieren realizar. El usuario puede introducir un número y se guardará una interpolación entre la melodía de _textit_ y la de _initial_ con ese número de melodías, siendo la primera de la secuencia la melodía actual y la última la melodía inicial. Hecho esto la melodía inicial pasará a ser la actual y puede proseguirse con la utilización del programa.
 
-![Intepolación entre la melodía actual y la inicial en 8 pasos](img/savemelody.png)
+![Intepolación entre la melodía actual y la inicial en 8 pasos](img/interpolatemelody.png)
