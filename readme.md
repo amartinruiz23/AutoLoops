@@ -1,6 +1,6 @@
 # AutoLoops
 
-AutoLoops es una aplicación web para la generación de música usando [Magenta MusicVAE](https://magenta.tensorflow.org/music-vae). Para abrir la aplicación el usuario solo debe descargar los archivos y abrir _index.html_ con un navegador. Hecho esto se visualizará la interfaz.
+AutoLoops es una aplicación web para la generación de música usando [Magenta MusicVAE](https://magenta.tensorflow.org/music-vae). Para abrir la aplicación el usuario solo debe entrar en la página https://amartinruiz23.github.io/AutoLoops/ o descargar los archivos y abrir _index.html_ con un navegador. Hecho esto se visualizará la interfaz.
 
 ![Interfaz de AutoLoops](img/autoloops.png)
 
